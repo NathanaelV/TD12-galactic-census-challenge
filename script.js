@@ -1,5 +1,6 @@
 let result = document.getElementById('result');
 let planet_details = document.getElementById('planet_details')
+let planet_name = document.getElementById('planet_name')
 
 window.onload = function() {
     printData();
@@ -29,3 +30,16 @@ async function printDataPlanet(planet_url) {
         Terreno: ${planet_data.terrain}<br>
     `;
 };
+
+async function searchPlanetName() {
+    planet_details.innerHTML = ''
+    let res = await fetch('https://swapi.dev/api/planets');
+
+    let {results} = await res.json();
+
+    results.forEach(planet => {
+        if (planet_name.value.toLowerCase() == planet.name.toLowerCase()) {
+            printDataPlanet(planet.url)
+        }
+    });
+}
