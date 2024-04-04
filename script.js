@@ -21,7 +21,6 @@ async function printData() {
 async function printDataPlanet(planet_url) {
     let res = await fetch(planet_url);
     let planet_data = await res.json();
-    console.log(planet_data)
 
     planet_details.innerHTML = `
         <strong>Está é o Planeta: ${planet_data.name}</strong><br>
