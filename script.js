@@ -7,8 +7,8 @@ async function printData() {
     // console.log(results)
 
     results.forEach(planet => {
-        let li = document.createElement('li');
-        li.innerHTML = planet.name
-        result.appendChild(li);
+        let button = document.createElement('button');
+        button.innerHTML = planet.name
+        result.appendChild(button);
     });
 }
